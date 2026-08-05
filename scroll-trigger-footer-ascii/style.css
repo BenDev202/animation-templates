@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Instrument Sans";
+}
+
+section {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+  background-color: #1a1a1a;
+  color: #ff3500;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+section h1 {
+  font-size: clamp(2rem, 5vw, 8rem);
+  font-weight: 500;
+  letter-spacing: -2%;
+}
+
+.footer-revealer {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+footer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #020202;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.footer-images {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-hand-img {
+  position: relative;
+  width: 42%;
+  min-width: 200px;
+  will-change: transform;
+}
+
+.footer-hand-img img {
+  display: block;
+  width: 100%;
+  opacity: 0;
+}
+
+.footer-hand-img canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.footer-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.footer-text {
+  max-width: 20rem;
+}
+
+.footer-text p {
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.footer-header {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  color: #fff;
+}
+
+.footer-header-h1 {
+  overflow: hidden;
+}
+
+.footer-header h1 {
+  font-size: clamp(4rem, 15vw, 15rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -2%;
+}
+
+@media (max-width: 1000px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .footer-text {
+    max-width: 100%;
+  }
+
+  .footer-header h1 {
+    font-size: 8rem;
+  }
+}
