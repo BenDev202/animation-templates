@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+:root {
+  --background: beige;
+  --foreground: #171717;
+  --font-inter-tight: var(--font-inter-tight);
+}
+
+.font-inter-tight {
+  font-family: var(--font-inter-tight);
+}
+
+body {
+  font-family: var(--font-inter-tight);
+}
+
