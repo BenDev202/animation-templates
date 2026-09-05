@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Trigger Animation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Smooth Scroll Container (Lenis) -->
+    <main id="root">
+        
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="img">
+                <img src="pro-logo.png" alt="Logo">
+            </div>
+        </section>
+
+        <!-- Main Animation Section -->
+        <section class="main">
+            <!-- Programmatic rows will be injected here by JS -->
+            
+            <div class="main-content">
+                <div class="logo">
+                    <img src="logo.png" alt="Logo">
+                </div>
+
+                <div class="copy">
+                    <div class="line"><p>Delve into coding without clutter.</p></div>
+                    <div class="line"><p>One subscription. Endless web design.</p></div>
+                    <div class="line"><p>Take the fast lane to mastery.</p></div>
+                </div>
+
+                <div class="btn">
+                    <button>Get PRO+</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <section class="footer">
+            <a href="#">Link in description</a>
+        </section>
+
+    </main>
+
+    <!-- GSAP & Lenis CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

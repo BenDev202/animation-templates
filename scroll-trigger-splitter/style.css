@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif; /* Use "Mabry Pro" if available */
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hero */
+.hero {
+    height: 100vh;
+}
+.hero .img {
+    width: 50%;
+    aspect-ratio: 1;
+}
+
+/* Main Section */
+.main {
+    height: 150vh;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.row {
+    position: relative;
+    width: 100%;
+    margin: 1em 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+
+.card {
+    position: relative;
+    width: 40%;
+    height: 360px;
+    border-radius: 0.75em;
+    overflow: hidden;
+    will-change: transform;
+}
+
+/* Central Content */
+.main-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+}
+
+.logo {
+    width: 150px;
+    height: 150px;
+    border: 2px solid #fff;
+    border-radius: 100%;
+    overflow: hidden;
+    transform: scale(0);
+}
+
+.copy {
+    margin: 2em 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.line {
+    position: relative;
+    margin: 0.5em 0;
+    width: max-content;
+    height: 28px;
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+}
+
+.line p {
+    position: relative;
+    font-size: 24px;
+    transform: translateY(30px);
+}
+
+.btn button {
+    padding: 1em 2em;
+    font-size: 18px;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 8em;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    transform: translateY(30px);
+    opacity: 0;
+}
+
+/* Footer */
+.footer {
+    height: 50vh;
+    align-items: flex-start;
+}
+
+.footer a {
+    font-size: 4vw;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .card {
+        width: 50%;
+        height: 240px;
+    }
+}
