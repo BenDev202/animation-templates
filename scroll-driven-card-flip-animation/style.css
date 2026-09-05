@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=DM+Sans:wght@400;500&display=swap');
+
+:root {
+    --base-100: #ffffff;
+    --base-200: #f8f1f2; /* Off-white */
+    --base-300: #fef8df; /* Soft Yellow */
+    --base-400: #eb4d27; /* Main Orange */
+    --base-500: #e7ebdf; /* Light Green-Grey */
+    --base-600: #266dd1; /* Blue */
+    --base-700: #fadc40; /* Yellow */
+    --base-800: #0d0d0d; /* Black */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--base-100);
+    color: var(--base-800);
+    overflow-x: hidden;
+}
+
+h1, h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    text-transform: uppercase;
+    font-weight: 900;
+    line-height: 0.85;
+}
+
+h1 { font-size: clamp(3rem, 5vw, 7rem); }
+h3 { font-size: clamp(2rem, 3vw, 5rem); }
+
+p {
+    font-size: 1.125rem;
+    line-height: 1.1;
+}
+
+span {
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    background-color: var(--base-100);
+    font-size: 0.9rem;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero { background-color: var(--base-200); }
+
+.hero-content {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 2;
+    padding: 2rem;
+    pointer-events: none;
+}
+
+.hero-content h1 {
+    width: min(72rem, 78vw);
+    text-wrap: balance;
+}
+
+.sticky-cards {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateZ(0);
+    width: clamp(17rem, 29vw, 28rem);
+    max-height: calc(100vh - 7rem);
+    aspect-ratio: 4/5;
+    background-color: var(--base-400);
+    color: var(--base-100);
+    border-radius: 1.25rem;
+    padding: clamp(1.5rem, 3vw, 2.75rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    backface-visibility: hidden;
+    will-change: transform;
+    box-shadow: 0 1.5rem 3rem rgba(13, 13, 13, 0.14);
+}
+
+.card-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+}
+
+.card h3 {
+    max-width: 100%;
+    text-wrap: balance;
+}
+
+.card p {
+    max-width: 23rem;
+    text-wrap: balance;
+}
+
+.card-front .icon {
+    width: 4rem;
+    height: 4rem;
+    border: 0.125rem solid var(--base-100);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.card-back .icon {
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--base-100);
+    color: var(--base-400);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+/* Individual card colors */
+#card-1 { background-color: var(--base-400); }
+#card-2 { background-color: var(--base-500); color: var(--base-800); }
+#card-3 { background-color: var(--base-600); }
+#card-4 { background-color: var(--base-700); color: var(--base-800); }
+
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--base-300);
+    min-height: 70vh;
+    padding: clamp(3rem, 8vw, 8rem) 2rem;
+}
+
+.about h3 {
+    width: min(62rem, 80vw);
+    text-align: center;
+    text-wrap: balance;
+}
+
+@media (max-width: 1000px) {
+    .hero-content h1, .about h3 { width: 85%; }
+}
+
+@media (max-width: 600px) {
+    h1 { font-size: clamp(2.75rem, 13vw, 4.5rem); }
+    h3 { font-size: clamp(1.85rem, 9vw, 3rem); }
+
+    .hero-content { padding: 1.25rem; }
+
+    .card {
+        width: min(78vw, 21rem);
+        max-height: calc(100vh - 5rem);
+        border-radius: 1rem;
+        padding: 1.5rem;
+    }
+
+    .card p { font-size: 1rem; }
+
+    .about { min-height: 60vh; }
+}

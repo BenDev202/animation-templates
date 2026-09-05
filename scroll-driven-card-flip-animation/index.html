@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll-Driven Card Animation</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- IonIcons for the card symbols -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Scroll down and watch everything fall into place</h1>
+        </div>
+        <div class="sticky-cards">
+            <!-- Front Card -->
+            <div class="card card-front">
+                <div class="card-content">
+                    <div class="icon"><ion-icon name="caret-down"></ion-icon></div>
+                    <h3>First Frame</h3>
+                    <span>Start Here</span>
+                    <p>A single moment, held in place before everything begins to move.</p>
+                </div>
+            </div>
+            <!-- Back Cards -->
+            <div class="card card-back" id="card-1">
+                <div class="card-content">
+                    <div class="icon"><ion-icon name="layers"></ion-icon></div>
+                    <h3>Layered Time</h3>
+                    <p>Moments stack, overlap, and reveal themselves slowly as the scroll continues.</p>
+                </div>
+            </div>
+            <div class="card card-back" id="card-2">
+                <div class="card-content">
+                    <div class="icon"><ion-icon name="prism"></ion-icon></div>
+                    <h3>Weight & Flow</h3>
+                    <p>Elements carry presence, easing in and out with balance, never rushed, never still.</p>
+                </div>
+            </div>
+            <div class="card card-back" id="card-3">
+                <div class="card-content">
+                    <div class="icon"><ion-icon name="infinite"></ion-icon></div>
+                    <h3>Soft Motion</h3>
+                    <p>Subtle shifts and gentle transitions that build a quiet sense of rhythm as you move forward.</p>
+                </div>
+            </div>
+            <div class="card card-back" id="card-4">
+                <div class="card-content">
+                    <div class="icon"><ion-icon name="lock-closed"></ion-icon></div>
+                    <h3>Final Hold</h3>
+                    <p>Everything settles into place, leaving a lasting frame that feels complete.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about">
+        <h3>A quiet progression of motion and stillness, where each layer reveals itself with intention and nothing feels out of place.</h3>
+    </section>
+
+    <!-- Scripts for GSAP and Lenis -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
