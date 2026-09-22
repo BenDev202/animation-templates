@@ -8,43 +8,60 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: auto;
+  background: #000;
+}
+
 body {
-  font-family: 'Inter', sans-serif;
-  background: #111;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background: #000;
   color: white;
   line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 /* Fullscreen intro and outro */
 .intro, .outro {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 2rem;
+  background: #000;
 }
 
 .intro h1, .outro h1 {
-  font-size: 3rem;
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  letter-spacing: -0.06em;
+  font-weight: 700;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
 }
 
 /* FAQ container */
 .faq {
-  padding: 2rem 0;
+  padding: 3rem 0 6rem;
+  background: #000;
 }
 
 .faq h2 {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   font-weight: 600;
-  font-size: 2rem;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  letter-spacing: -0.04em;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
 }
 
 .container {
-  max-width: 75%;
+  max-width: 900px;
+  width: min(100% - 2rem, 900px);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2.5rem;
 }
 
 /* Each Q&A item */
@@ -52,21 +69,20 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  contain: layout paint;
 }
 
 /* Rows for question and answer */
 .row {
   display: flex;
   width: 100%;
-  min-height: 80px; /* will be dynamically set in JS */
+  min-height: 80px;
 }
 
-/* Question on left */
 .row.question {
   justify-content: flex-start;
 }
 
-/* Answer on right */
 .row.answer {
   justify-content: flex-end;
 }
@@ -74,69 +90,69 @@ body {
 /* Message bubble */
 .message {
   position: relative;
-  background: transparent;
-  border: 2px solid white;
-  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.25rem;
   padding: 1rem 1.5rem;
-  max-width: 60%;
-  overflow: hidden; /* important for clipping */
+  max-width: min(70%, 500px);
+  min-width: 64px;
+  min-height: 64px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 0.5rem;
   color: white;
   font-weight: 500;
-  font-size: 1rem;
-  /* Initial state will be overridden by JS */
+  font-size: clamp(0.95rem, 1.8vw, 1rem);
+  letter-spacing: -0.01em;
+  box-shadow: none;
+  backdrop-filter: none;
+  will-change: transform, width, height, border-radius, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  contain: layout paint;
 }
 
-/* Question bubble style */
 .row.question .message {
-  border-color: #a0c4ff;
-  color: #a0c4ff;
-  background-color: rgba(160, 196, 255, 0.1);
+  border-color: rgba(158, 197, 255, 0.25);
+  color: #dfeaff;
+  background: rgba(18, 18, 18, 0.95);
 }
 
-/* Answer bubble style */
 .row.answer .message {
-  border-color: #ffd166;
-  color: #ffd166;
-  background-color: rgba(255, 209, 102, 0.1);
+  border-color: rgba(255, 209, 102, 0.25);
+  color: #ffe7a3;
+  background: rgba(18, 18, 18, 0.95);
 }
 
-/* Typing indicator container */
 .typing-indicator {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  inset: 0;
   display: flex;
-  gap: 0.3rem;
-  transform: translate(-50%, -50%);
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
   pointer-events: none;
+  z-index: 2;
 }
 
-/* Dots */
 .typing-indicator span {
   display: block;
   width: 8px;
   height: 8px;
   background-color: currentColor;
   border-radius: 50%;
-  opacity: 0.3;
-  animation: bounce 1.4s infinite;
+  opacity: 0.35;
+  animation: bounce 1.4s infinite ease-in-out;
+  will-change: transform, opacity;
+  transform: translateZ(0);
 }
 
-/* Stagger animation delay for dots */
-.typing-indicator span:nth-child(1) {
-  animation-delay: 0s;
-}
-.typing-indicator span:nth-child(2) {
-  animation-delay: 0.2s;
-}
-.typing-indicator span:nth-child(3) {
-  animation-delay: 0.4s;
-}
+.typing-indicator span:nth-child(1) { animation-delay: 0s; }
+.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
 
-/* Bounce animation */
 @keyframes bounce {
   0%, 80%, 100% {
     opacity: 0.3;
@@ -148,7 +164,72 @@ body {
   }
 }
 
-/* Content paragraphs start hidden */
+.content {
+  position: relative;
+  z-index: 1;
+}
+
 .content p {
+  margin: 0;
   opacity: 0;
+  transform: translateY(8px);
+  will-change: transform, opacity;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .intro, .outro {
+    min-height: 70vh;
+    padding: 1.5rem 1rem;
+  }
+
+  .faq {
+    padding: 2rem 0 4rem;
+  }
+
+  .container {
+    width: min(100% - 1rem, 900px);
+    gap: 1.75rem;
+  }
+
+  .item {
+    gap: 0.75rem;
+  }
+
+  .message {
+    max-width: 85%;
+    padding: 0.9rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro h1, .outro h1 {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+  }
+
+  .faq h2 {
+    font-size: clamp(1.5rem, 7vw, 2.2rem);
+    margin-bottom: 1.75rem;
+  }
+
+  .message {
+    max-width: 92%;
+    font-size: 0.92rem;
+    padding: 0.8rem 0.9rem;
+  }
+
+  .typing-indicator span {
+    width: 7px;
+    height: 7px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
